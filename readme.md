@@ -3,6 +3,7 @@
 30% ortholinear keyboard built using ergogen. 
 
 ![Prototype](images/prototype.png)
+first prototype, messed up the oled on this iteration.
 
 # WIP
 
