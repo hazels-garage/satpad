@@ -1,6 +1,8 @@
-# SatPad
+# SatPad (formerly CUPCAKE)
 
 30% ortholinear keyboard built using ergogen. 
+
+![Prototype](images/prototype.png)
 
 # WIP
 
