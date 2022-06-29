@@ -1,0 +1,178 @@
+units:
+  visual_x: 17.5
+  visual_y: 16.5
+points:
+  zones:
+    matrix:
+      columns:
+        one:
+          key:
+            column_net: P21
+            column_mark: 1
+        two:
+          spread: 1cx
+          key:
+            column_net: P20
+            column_mark: 2
+        three:
+          spread: 1cx
+          key:
+            column_net: P19
+            column_mark: 3
+        four:
+          spread: 1cx
+          key:
+            column_net: P18
+            column_mark: 4
+        five:
+          spread:  1cx
+          key:
+            column_net: P15
+            column_mark: 5
+        six:
+          spread:  1cx
+          key:
+            column_net: P0
+            column_mark: 6
+          rows:
+            top.skip: true
+            home.skip: true
+            bottom.skip: true
+        seven:
+          spread:  1.25cx
+          key:
+            column_net: P15
+            column_mark: 7
+          rows: 
+            top.row_net: P1
+            home.row_net: P0
+            bottom.row_net: P4
+        eight:
+          spread:  1cx
+          key:
+            column_net: P18
+            column_mark: 8
+          rows: 
+            top.row_net: P1
+            home.row_net: P0
+            bottom.row_net: P4
+        nine:
+          spread:  1cx
+          key:
+            column_net: P19
+            column_mark: 9
+          rows: 
+            top.row_net: P1
+            home.row_net: P0
+            bottom.row_net: P4            
+        ten:
+          spread:  1cx
+          key:
+            column_net: P20
+            column_mark: 10
+          rows: 
+            top.row_net: P1
+            home.row_net: P0
+            bottom.row_net: P4            
+        eleven:
+          spread:  1cx
+          key:
+            column_net: P21
+            column_mark: 11
+          rows: 
+            top.row_net: P1
+            home.row_net: P0
+            bottom.row_net: P4            
+      rows:
+        bottom:
+          padding: 1cy
+          row_net: P10
+        home:
+          padding: 1cy
+          row_net: P16
+        top:
+          padding: 1cy
+          row_net: P14
+  key:
+    bind: 2
+    footprints:
+      choc:
+        type: choc
+        anchor:
+        nets:
+          from: =colrow
+          to: =column_net
+        params:
+          keycaps: true
+      diode:
+        type: diode
+        anchor:
+          rotate: 0
+          shift: [ 0, -4.5 ]
+        nets:
+          from: =colrow
+          to: =row_net
+        params:
+          via_in_pad: true
+          through_hole: false
+outlines:
+  exports:
+    raw:
+      - type: rectangle
+        size: [11.25cx,3cy]
+        anchor:
+          shift: [-.5cx, -.5cy]
+        corner: 2
+    panel:
+      - type: outline
+        name: raw
+        fillet: 0.5
+    switch_cutouts:
+      - type: keys
+        side: left
+        size: 14
+        bound: false
+    switch_plate:
+      main:
+        type: outline
+        name: panel
+        fillet: 0.5
+      keyholes:
+        type: outline
+        name: switch_cutouts
+        operation: subtract
+pcbs:
+  satpad:
+    outlines:
+      main:
+        outline: panel
+    footprints:
+      promicro:
+        type: promicro
+        anchor:
+          ref: matrix_seven_top
+          shift: [-1.125cx,-9.25]
+          rotate: -90
+        params:
+          orientation: down
+      oled:
+        type: oled
+        anchor:
+          ref: matrix_seven_bottom
+          shift: [-26.25, 6.5]
+          rotate: 90
+        nets:
+          SDA: P2
+          SCL: P3
+      scrollwheel:
+        type: scrollwheel
+        anchor: 
+          ref: matrix_seven_bottom
+          shift: [-21, -1]
+        nets:
+          from: P6
+          to: P7
+          A: P8
+          B: P9
+          C: GND
+          D: ''
