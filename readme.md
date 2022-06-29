@@ -1,6 +1,10 @@
 # SatPad
 
-30% ortholinear keyboard built using ergogen.
+30% ortholinear keyboard built using ergogen. 
+
+# WIP
+
+current build has not been fabricated yet, but previous prototype was functional enough that I'm pretty sure this one will work.
 
 ## features
 
@@ -9,10 +13,4 @@
 - oled display
 
 ## firmware
-qmk
-vial
-
-## images
-
-coming soon
-
+[QMK](https://github.com/jasonhazel/qmk_firmware/tree/master/keyboards/jasonhazel/satpad)
