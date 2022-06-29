@@ -13,4 +13,6 @@ current build has not been fabricated yet, but previous prototype was functional
 - oled display
 
 ## firmware
-[QMK](https://github.com/jasonhazel/qmk_firmware/tree/master/keyboards/jasonhazel/satpad)
+QMK: https://github.com/jasonhazel/qmk_firmware/tree/master/keyboards/jasonhazel/SatPad
+
+Might fuck around and do a wireless/ZMK version later.
