@@ -2,12 +2,8 @@
 
 30% ortholinear keyboard built using ergogen. 
 
-![Prototype](images/prototype.png)
-first prototype, messed up the oled on this iteration.
-
-# WIP
-
-current build has not been fabricated yet, but previous prototype was functional enough that I'm pretty sure this one will work.
+![rev1](images/rev1.png)
+rev1 - feature complete.
 
 ## Features
 
@@ -15,6 +11,13 @@ current build has not been fabricated yet, but previous prototype was functional
 - scroll wheel encoder with click
 - oled display
 
+## Materials
+* 1x ProMicro or equivalent
+* 1x SSD1306 OLED Screen (optional)
+* 30x 1N4148 SOD-123 Diodes
+* 30x Kailh Choc v1
+* 30x 1u Kailh Choc Keycaps
+* 1x EVQWGD001 Encoder
 ## Firmware
 QMK: https://github.com/jasonhazel/qmk_firmware/tree/master/keyboards/jasonhazel/satpad
 
