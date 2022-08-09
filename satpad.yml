@@ -1,100 +1,118 @@
 units:
-  visual_x: 17.5
-  visual_y: 16.5
+  h: cy
+  w: cx
+  mount_offset: .5h - .75
+mounting:
+  mount1:
+    type: m2
+    params.size: 2.8
+    anchor:
+      ref: 
+        - matrix_pinky_top
+        # - matrix_ring_top
+      shift: [-.5w + .75, mount_offset]
+  mount2:
+    type: m2
+    params.size: 2.8
+    anchor:
+      ref: 
+        - matrix_pinky_bottom
+      shift: [-.5w + .75, -mount_offset]
+      
+  mount3:
+    type: m2
+    params.size: 2.8
+    anchor:
+      ref: 
+        - matrix_index_top
+        - matrix_inner_top
+      shift: [0, mount_offset]
+  mount4:
+    type: m2
+    params.size: 2.8
+    anchor:
+      ref:
+        - matrix_index_bottom
+        - matrix_inner_bottom
+      shift: [0, -mount_offset] 
+  mount5:
+    type: m2
+    params.size: 2.8
+    anchor:
+      ref: 
+        - mirror_matrix_pinky_top
+      shift: [.5w - .75, mount_offset]
+  mount6:
+    type: m2
+    params.size: 2.8
+    anchor:
+      ref: 
+        - mirror_matrix_pinky_bottom
+      shift: [.5w - .75, -mount_offset]
+  mount7:
+    type: m2
+    params.size: 2.8
+    anchor:
+      ref: 
+        - mirror_matrix_index_top
+        - mirror_matrix_inner_top
+      shift: [0, mount_offset]
+  mount8:
+    type: m2
+    params.size: 2.8
+    anchor:
+      ref:
+        - mirror_matrix_index_bottom
+        - mirror_matrix_inner_bottom
+      shift: [0, -mount_offset]       
+
+swaps:
+  diode:
+    footprints.diode.anchor.shift: [0, 8]
 points:
+  mirror:
+    ref: matrix_inner_home
+    distance: 2w
   zones:
     matrix:
       columns:
-        one:
+        pinky:
           key:
-            column_net: P21
-            column_mark: 1
-        two:
-          spread: 1cx
+            column_net: F4
+        ring:
+          spread: w
           key:
-            column_net: P20
-            column_mark: 2
-        three:
-          spread: 1cx
+            column_net: F5
+        middle:
+          spread: w
           key:
-            column_net: P19
-            column_mark: 3
-        four:
-          spread: 1cx
+            column_net: F6
+        index:
+          spread: w
+          key.column_net: F7
+        inner:
+          spread:  w
           key:
-            column_net: P18
-            column_mark: 4
-        five:
-          spread:  1cx
-          key:
-            column_net: P15
-            column_mark: 5
-        six:
-          spread:  1cx
-          key:
-            column_net: P0
-            column_mark: 6
-          rows:
-            top.skip: true
-            home.skip: true
-            bottom.skip: true
-        seven:
-          spread:  1.25cx
-          key:
-            column_net: P15
-            column_mark: 7
-          rows: 
-            top.row_net: P1
-            home.row_net: P0
-            bottom.row_net: P4
-        eight:
-          spread:  1cx
-          key:
-            column_net: P18
-            column_mark: 8
-          rows: 
-            top.row_net: P1
-            home.row_net: P0
-            bottom.row_net: P4
-        nine:
-          spread:  1cx
-          key:
-            column_net: P19
-            column_mark: 9
-          rows: 
-            top.row_net: P1
-            home.row_net: P0
-            bottom.row_net: P4            
-        ten:
-          spread:  1cx
-          key:
-            column_net: P20
-            column_mark: 10
-          rows: 
-            top.row_net: P1
-            home.row_net: P0
-            bottom.row_net: P4            
-        eleven:
-          spread:  1cx
-          key:
-            column_net: P21
-            column_mark: 11
-          rows: 
-            top.row_net: P1
-            home.row_net: P0
-            bottom.row_net: P4            
+            column_net: B1
       rows:
         bottom:
-          padding: 1cy
-          row_net: P10
+          padding: h
+          row_net: B6
+          mirror.row_net: D4
         home:
-          padding: 1cy
-          row_net: P16
+          padding: h
+          row_net: B2
+          mirror.row_net: D2
+
         top:
-          padding: 1cy
-          row_net: P14
+          padding: h
+          row_net: B3
+          mirror.row_net: D3
   key:
     bind: 2
+    mirror:
+      footprints:
+
     footprints:
       choc:
         type: choc
@@ -107,21 +125,22 @@ points:
       diode:
         type: diode
         anchor:
-          rotate: 0
           shift: [ 0, -4.5 ]
         nets:
           from: =colrow
           to: =row_net
         params:
-          via_in_pad: true
-          through_hole: false
+          padSize: 1.2
+          tht: true
+          side: both
+          via: false
 outlines:
   exports:
     raw:
       - type: rectangle
-        size: [11.25cx,3cy]
+        size: [11w + 1.5,3h + 1.5]
         anchor:
-          shift: [-.5cx, -.5cy]
+          shift: [-.5w - .75, -.5h - .75]
         corner: 2
     panel:
       - type: outline
@@ -129,7 +148,7 @@ outlines:
         fillet: 0.5
     switch_cutouts:
       - type: keys
-        side: left
+        side: both
         size: 14
         bound: false
     switch_plate:
@@ -141,38 +160,119 @@ outlines:
         type: outline
         name: switch_cutouts
         operation: subtract
+    backplate:
+      - type: outline
+        name: panel
 pcbs:
+  backplate:
+    include_keys: false
+    outlines:
+      main:
+        outline: backplate
+    footprints:
+      $extends: mounting
+  plate:
+    include_keys: false
+    outlines:
+      main:
+        outline: switch_plate
+    footprints:
+      $extends: mounting
   satpad:
     outlines:
       main:
         outline: panel
     footprints:
+      $extends: 
+        - mounting
       promicro:
         type: promicro
         anchor:
-          ref: matrix_seven_top
-          shift: [-1.125cx,-9.25]
+          ref: 
+            - matrix_inner_top
+            - mirror_matrix_inner_top
+          shift: [0,-10]
           rotate: -90
         params:
           orientation: down
       oled:
         type: oled
         anchor:
-          ref: matrix_seven_bottom
-          shift: [-26.25, 6.5]
+          ref: 
+            - matrix_inner_bottom
+            - mirror_matrix_inner_bottom
+          shift: [-6, 6]
           rotate: 90
         nets:
-          SDA: P2
-          SCL: P3
+          SDA: D1
+          SCL: D0
       scrollwheel:
         type: scrollwheel
         anchor: 
-          ref: matrix_seven_bottom
-          shift: [-21, -1]
+          ref: 
+            - matrix_inner_bottom
+            - mirror_matrix_inner_bottom
+          shift: [0, -1]
         nets:
-          from: P6
-          to: P7
-          A: P8
-          B: P9
+          from: D7
+          to: E6
+          A: B4
+          B: B5
           C: GND
           D: ''
+      slider:
+        type: slider
+        anchor:
+          ref: 
+            - matrix_inner_top
+            - mirror_matrix_inner_top
+          shift: [0, 7.25]
+          # rotate: 180
+        nets:
+          to: Bplus
+          from: BAT
+        params:
+          side: F
+      bat_plus:
+        type: pin
+        anchor:
+          ref: 
+            - matrix_inner_top
+            - mirror_matrix_inner_top
+          shift: [-2.25, 2]
+        nets:
+          net: BAT
+        params:
+          shape: roundrect
+      bat_plus_silk:
+        type: text
+        anchor: 
+          ref: 
+            - matrix_inner_top
+            - mirror_matrix_inner_top
+          shift: [-2.25,0]
+        params:
+          text: '+'
+          side: 'B'
+      bat_minus:
+        type: pin
+        anchor:
+          ref: 
+            - matrix_inner_top
+            - mirror_matrix_inner_top
+          shift: [2.25, 2]
+        nets:
+          net: Bminus
+        params:
+          shape: roundrect
+      bat_minus_silk:
+        type: text
+        anchor: 
+          ref: 
+            - matrix_inner_top
+            - mirror_matrix_inner_top
+          shift: [2.25,0]
+        params:
+          text: '-'
+          side: 'B'
+    
