@@ -2,14 +2,13 @@
 
 30% ortholinear keyboard built using ergogen. 
 
-![rev0](images/rev0.png) 
+![rev2](images/rev2-wireless.jpg) 
 
 ## Features
 
 - 30 key ortholinear split (10 column, 3 row)
 - scroll wheel encoder with click
 - OLED display
-- mill-maxable switches
 
 ## Ergogen
 built using my customized fork of ergogen that adds a bunch of footprints.
@@ -37,4 +36,4 @@ ZMK: https://github.com/jasonhazel/zmk-config/tree/satpad
 
 
 ## Sponsored by PCBWay
-This project was initially just to learn, but PCBWay reached out and offered to sponsor further development.  THey've been great - great quality, fast fabrication and great customer service.  I'll definitely be using them for future projects.
+This project was initially just to learn, but PCBWay reached out and offered to sponsor further development.  They've been awesome - great quality, fast fabrication and great customer service.  I'll definitely be using them for future projects.
