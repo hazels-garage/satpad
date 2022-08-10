@@ -3,13 +3,18 @@
 30% ortholinear keyboard built using ergogen. 
 
 ![rev2](images/rev2-wireless.jpg) 
-
+![front](images/front.jpg) 
+![back](images/back.jpg)
 ## Features
 
 - 30 key ortholinear split (10 column, 3 row)
 - scroll wheel encoder with click
 - OLED display
 
+## Sponsored by PCBWay
+This project was initially just to learn, but PCBWay reached out and offered to sponsor further development.  They've been awesome - great quality, fast fabrication and great customer service.  I'll definitely be using them for future projects.
+
+<a href="https://www.pcbway.com/project/shareproject/SatPad_rev2_53e17b07.html">Order on PCBWay</a>
 ## Ergogen
 built using my customized fork of ergogen that adds a bunch of footprints.
 
@@ -35,7 +40,4 @@ ZMK: https://github.com/jasonhazel/zmk-config/tree/satpad
 ![Keymap](images/keymap.png)
 
 
-## Sponsored by PCBWay
-This project was initially just to learn, but PCBWay reached out and offered to sponsor further development.  They've been awesome - great quality, fast fabrication and great customer service.  I'll definitely be using them for future projects.
 
-<a href="https://www.pcbway.com/project/shareproject/SatPad_rev2_53e17b07.html"><img src="https://www.pcbway.com/project/img/images/frompcbway-1220.png" alt="PCB from PCBWay" /></a>
