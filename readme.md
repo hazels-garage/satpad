@@ -34,7 +34,7 @@ https://github.com/jasonhazel/ergogen/tree/jasonhazel
 * 1x LiPo Battery (optional)
 
 ## Firmware
-QMK: https://github.com/jasonhazel/qmk_firmware/tree/master/keyboards/jasonhazel/satpad
+QMK: https://github.com/jasonhazel/qmk_hazel/tree/master/keyboards/jasonhazel/satpad
 
 ZMK: https://github.com/jasonhazel/zmk-config/tree/satpad
 
