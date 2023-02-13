@@ -7,7 +7,7 @@
 ![back](images/back.jpg)
 
 ## ERGOGEN V3!
-I have not updated this project to use Ergogen v4 and am likely to do so.
+I have not updated this project to use Ergogen v4 and am unlikely to do so.
 
 
 ## Features
