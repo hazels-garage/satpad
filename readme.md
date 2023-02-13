@@ -1,10 +1,13 @@
 # SatPad
 
-30% ortholinear keyboard built using ergogen. 
+30% ortholinear keyboard built using ergogen v3. 
 
 ![rev2](images/rev2-wireless.jpg) 
 ![front](images/front.jpg) 
 ![back](images/back.jpg)
+
+## ERGOGEN V3!
+I have not updated this project to use Ergogen v4 and am likely to do so.
 
 
 ## Features
